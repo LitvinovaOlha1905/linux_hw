@@ -1,0 +1,30 @@
+   0 cd /home/
+   1 mkdir animals
+   2 cd animals
+   3 mkdir dogs cats fish
+   4 ls
+   5 cd dogs
+   6 touch pluto.txt
+   7 cd ..
+   8 cd cats
+   9 touch gsrfield.txt
+  10 cd ..
+  11 cd fish
+  12 touch nemo.txt
+  13 tree /home
+  14 cd /tmp
+  15 touch adam.txt
+  16 cd /home/
+  17 mkdir humans
+  18 cp /tmp/adam.txt /home/humans/
+  19 cd /tmp
+  20 touch evA.txt
+  21 cp /tmp/evA.txt /opt/eve.txt
+  22 cd /opt/
+  23 ls
+  24 mv eve.txt /home/humans/
+  25 cd /home/
+  26 ls
+  27 tree /home/
+  28 history
+  29 history > linux_history_hw_080923
