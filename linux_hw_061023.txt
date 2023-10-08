@@ -1,0 +1,36 @@
+1. Создайте файл myfirstbashscript.sh в вашей папке на сервере.
+
+ssh -i ~/.ssh/id_rsa ec2-user@linux.telran-edu.de
+pwd
+cd /opt/220823_morning/litvinova
+nano myfirstbashscript.sh
+#!/bin/bash
+
+2. Сделайте его исполняемым.
+
+chmod +x myfirstbashscript.sh
+
+3. Заведите новую переменную USER и присвойте ей ваше имя в качестве значения
+
+USER="Olha";
+
+4. Добавьте в скрипт все необходимое, чтобы он:
+
+- Написал дату
+
+date  
+
+- Поприветствовал Вас по имени (hello $USER!)
+
+echo "hello $USER!"
+
+- Написал, из какой директории он работает
+
+echo "$(pwd)"
+
+результат из гитбаш:
+
+[ec2-user@ip-172-31-33-20 litvinova]$ ./myfirstbashscript.sh
+Sun Oct  8 09:06:25 UTC 2023
+hello Olha!
+/opt/220823_morning/litvinova
