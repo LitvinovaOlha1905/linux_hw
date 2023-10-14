@@ -1,0 +1,120 @@
+Создайте скрипт sleeper.sh, который будет 10 раз с интервалом в 5 секунд писать дату в формате HH:MM:SS и количество процессов одним числом.
+
+	nano sleeper.sh
+
+пишим цикл в nano:
+
+	#!/bin/bash
+
+		for run in {1..10}
+		do
+		date +'%H:%M:%S'
+		ps -ef | sed '1d'| wc -l
+		sleep 5
+		done
+
+Уменьшите или уберите временной интервал (который нам дает sleep), используя vi или nano, закомментировав строку или поменяв значение sleep
+
+в nano коментируем sleep и уменьшаем временной интервал:
+
+	#	sleep 5
+		sleep 1
+
+С помощью скрипта запишите в файл информацию о процессоре. 
+
+в nano:
+	cat /proc/cpuinfo | grep "vendor_id"
+
+С помощью скрипта запишите в файл информацию об операционной системе, но отфильтруйте информацию так, чтобы осталось только имя (NAME=Alpine Linux).
+
+в nano:
+	cat /etc/os-release | greap "NAME=" | awk 'print{$1, $2} | head -1
+
+Выполните прошлое действие, но так, чтобы слово NAME= не осталось, а было только имя в чистом виде (Alpine)
+
+в nano:
+	cat /etc/os-release | greap "NAME=" | awk 'print{$1} | head -1 | sed 's/NAME="//g'
+
+С помощью скрипта создайте 50 файлов с расширением txt и именами от 50.txt до 100.txt
+
+в nano:
+	mkdir -p /opt/220823_morning/litvinova/50files
+        	for run in {50..100}
+        	do
+        	touch  /opt/220823_morning/litvinova/50files/$run.txt
+        	done
+	echo "done"
+
+даем права на файл:
+
+	chmod 744 sleeper.sh
+
+запускаем sleeper.sh :
+
+	./sleeper.sh
+
+Вывод на экран: 
+
+[ec2-user@ip-172-31-33-20 litvinova]$ ./sleeper.sh
+21:05:10
+127
+21:05:11
+127
+21:05:12
+125
+21:05:13
+125
+21:05:14
+125
+21:05:15
+124
+21:05:16
+125
+21:05:17
+125
+21:05:18
+125
+21:05:20
+125
+vendor_id       : AuthenticAMD
+vendor_id       : AuthenticAMD
+NAME="Amazon Linux"
+Amazon
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Вот что вам понадобится для реализации всего этого: 
+sleep
+touch
+ps -ef
+date +“%H:%M:%S”
+cat /etc/os-release
+grep
+awk ‘{print$НОМЕР_СТОЛБЦА}’
+
+Если удобно, то вот однострочник, создающий простейший скрипт, который надо будет редактировать: 
+echo -e #!/bin/bash\n date\n echo “it works!“ > /tmp/script.sh
+a вот расширенный вариант и то, что может использоваться:
+for run in {1..10} 
+do
+
+
+Comment section
+
+here are your commands and actions
+
+done
