@@ -28,12 +28,12 @@
 С помощью скрипта запишите в файл информацию об операционной системе, но отфильтруйте информацию так, чтобы осталось только имя (NAME=Alpine Linux).
 
 в nano:
-	cat /etc/os-release | greap "NAME=" | awk 'print{$1, $2} | head -1
+	cat /etc/os-release | grep "NAME=" | awk 'print{$1, $2} | head -1
 
 Выполните прошлое действие, но так, чтобы слово NAME= не осталось, а было только имя в чистом виде (Alpine)
 
 в nano:
-	cat /etc/os-release | greap "NAME=" | awk 'print{$1} | head -1 | sed 's/NAME="//g'
+	cat /etc/os-release | grep "NAME=" | awk 'print{$1} | head -1 | sed 's/NAME="//g'
 
 С помощью скрипта создайте 50 файлов с расширением txt и именами от 50.txt до 100.txt
 
